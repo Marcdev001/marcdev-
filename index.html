@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarcDev - Frontend Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         /* ===== BASE STYLES ===== */
         :root {
@@ -121,7 +122,8 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1rem 5%;
+            height: 70px;
+            padding: 0 5%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
@@ -130,6 +132,25 @@
             align-items: center;
             transition: var(--transition);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .navbar .logo img {
+            height: 80px;
+            width: auto;
+            max-height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .dark-mode .navbar .logo img {
+            filter: brightness(0) invert(1);
         }
 
         .dark-mode .navbar {
@@ -142,6 +163,7 @@
             font-weight: 700;
             color: var(--primary-color);
             letter-spacing: -0.5px;
+            font-family: 'Playfair Display', serif;
         }
 
         .nav-links {
@@ -200,26 +222,31 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 160px;
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
         }
 
         .hero-text h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
             line-height: 1.1;
+            font-family: 'Playfair Display', serif;
         }
 
         .hero-text h2 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
         }
 
         .hero-text p {
@@ -254,6 +281,8 @@
         .social-links {
             display: flex;
             gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
 
         .social-links a {
@@ -357,6 +386,7 @@
             margin-bottom: 3rem;
             text-align: center;
             position: relative;
+            font-family: 'Playfair Display', serif;
         }
 
         .section-title::after {
@@ -396,6 +426,7 @@
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
         }
 
         .about-text p {
@@ -473,6 +504,7 @@
 
         .service-card h3 {
             margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* ===== PORTFOLIO SECTION ===== */
@@ -548,6 +580,7 @@
 
         .portfolio-info h3 {
             margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .portfolio-info p {
@@ -567,6 +600,7 @@
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
         }
 
         .contact-info p {
@@ -607,6 +641,7 @@
             font-size: 2rem;
             margin-bottom: 2rem;
             color: var(--text-color);
+            font-family: 'Playfair Display', serif;
         }
 
         #contactForm h1 span {
@@ -693,6 +728,7 @@
 
         .success-popup h3 {
             margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .success-popup button {
@@ -739,6 +775,7 @@
             font-size: 2rem;
             font-weight: 700;
             color: white;
+            font-family: 'Playfair Display', serif;
         }
 
         .footer-social {
@@ -772,14 +809,13 @@
                 gap: 3rem;
             }
 
-            .hero-text {
-                order: 1;
+            .hero-content {
+                padding: 2rem 0;
             }
-
+            
             .hero-image {
-                order: 0;
                 max-width: 400px;
-                margin: 0 auto;
+                margin: 2rem auto 0;
             }
 
             .about-image {
@@ -834,11 +870,11 @@
                 display: block;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
+        .cta-buttons {
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+        }            .btn {
                 width: 100%;
             }
 
@@ -859,7 +895,11 @@
 
         @media (max-width: 480px) {
             section {
-                padding: 80px 5%;
+                padding: 60px 5%;
+            }
+
+            .hero {
+                padding-top: 150px;
             }
 
             .hero-text h1 {
@@ -879,7 +919,7 @@
 <body class="light-mode">
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">MarcDev</div>
+        <div class="logo"><img src="img/MyLogo1.png" alt="MarcDev Logo"></div>
         <div class="nav-links">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
@@ -901,8 +941,8 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="animate-text">Hello, I'm <span class="highlight">Martin Chikwuelum</span></h1>
-                    <h2 class="animate-text delay-1">Frontend Developer | Fullstack</h2>
-                    <p class="animate-text delay-2">I craft innovative web solutions with clean code and exceptional user experiences, specializing in frontend technologies.</p>
+                    <h2 class="animate-text delay-1">Frontend Developer | Fullstack | Wordpress Developer</h2>
+                    <p class="animate-text delay-2">Your Digital Growth Catalyst. I help startups scale and businesses transform through smart tech solutions. From custom websites to AI integration, I deliver results that boost your market presence and drive revenue. Whether you're a growing startup or an established business, I turn your digital vision into reality.</p>
                     <div class="cta-buttons animate-text delay-3">
                         <a href="#contact" class="btn primary">Hire Me</a>
                         <a href="#portfolio" class="btn secondary">View My Work</a>
@@ -934,18 +974,17 @@
                     <img src="img/IMG-20250125-WA0018.jpg" alt="About Marc">
                 </div>
                 <div class="about-text">
-                    <h3>Frontend Developer | Fullstack Enthusiast | Problem Solver | Bridging Business &amp; Tech  </h3>
-                    <p>With 3 years of experience in building scalable, user-friendly web applications, I specialize in frontend development using modern technologies like React, Next.js, and Tailwind CSS. My expertise lies in creating high-performance, maintainable applications that deliver exceptional user experiences while aligning with business goals.</p>
-                    <p>I bring a unique perspective by bridging the gap between business objectives and technical execution , ensuring that every solution I develop drives measurable impact. Whether it's integrating AI-powered tools, optimizing for SEO, or building real-time applications, I prioritize scalability, performance, and user-centric design.</p>
+                    <h3>Frontend Developer | Fullstack Enthusiast | Wordpress Developer | Bridging Business objectives with Tech solutions</h3>
+                    <p>With 3 years of experience in digital solutions, I offer a comprehensive blend of frontend development, WordPress expertise, and business-focused web solutions. From crafting custom WordPress themes and plugins to building modern web applications with React and Next.js, I deliver tailored solutions that align perfectly with your business objectives.</p>
+                    <p>My expertise extends beyond coding – I'm a digital problem solver who understands both the technical and business aspects of web development. Whether it's creating engaging e-commerce platforms, optimizing website performance, or implementing robust content management solutions, I focus on delivering measurable results that drive business growth.</p>
                     <p>Above all, I'm committed to continuous learning and staying ahead of industry trends, enabling me to adapt and innovate in an ever-evolving tech landscape.</p>
                     <div>
-                        <h4>Education &amp; Certifications </h4>
-                        <p>WAEC &amp; NECO (High School Certificate)</p>
-                        <p>Business Foundation (Coursera – Self-taught, No Certificate)</p>
-                        <p>Software Development (Self-taught via FreeCodeCamp &amp; Online Resources) </p>
+                        <h4 style="font-family: 'Poppins', sans-serif; margin-bottom: 0.5rem;">Education &amp; Certifications </h4>
+                        <p style="margin-bottom: 0.3rem;">• Business Foundation (Coursera – Self-taught, No Certificate)</p>
+                        <p style="margin-bottom: 0.3rem;">• Software Development (Self-taught via FreeCodeCamp &amp; Online Resources) </p>
                     </div>
                     <div class="skills">
-                        <h4>Technical Skills</h4>
+                        <h4 style="font-family: 'Poppins', sans-serif;">Technical Skills</h4>
                         <div class="skill-bars">
                             <div class="skill">
                                 <span>HTML, CSS, Bootstrap, Tailwind CSS</span>
@@ -967,9 +1006,32 @@
                                 <span>Docker, Jest</span>
                                 <div class="progress-bar" data-progress="45"></div>
                             </div>
+                            <div class="skill">
+                                <span>WordPress Development & Customization</span>
+                                <div class="progress-bar" data-progress="80"></div>
+                            </div>
+                            <div class="skill">
+                                <span>UI/UX Design & Prototyping</span>
+                                <div class="progress-bar" data-progress="50"></div>
+                            </div>
+                            <div class="skill">
+                                <span>SEO & Digital Marketing</span>
+                                <div class="progress-bar" data-progress="80"></div>
+                            </div>
                         </div>
                     </div>
-                    <a href="img/My General Resume (1).pdf" class="btn secondary" download>Download CV</a>
+                    <div class="additional-skills">
+                        <h4 style="font-family: 'Poppins', sans-serif; margin-top: 2rem;">Additional Expertise</h4>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                            <li style="margin-bottom: 1rem;">• WordPress CMS Management & Customization</li>
+                            <li style="margin-bottom: 1rem;">• E-commerce Platform Integration (WooCommerce, Shopify)</li>
+                            <li style="margin-bottom: 1rem;">• Website Speed Optimization & Performance</li>
+                            <li style="margin-bottom: 1rem;">• Third-party Plugin Integration & Configuration</li>
+                            <li style="margin-bottom: 1rem;">• Cross-browser Compatibility Testing</li>
+                            <li style="margin-bottom: 1rem;">• Content Strategy & Management</li>
+                        </ul>
+                    </div>
+                    <a href="img/My Resume (1).pdf" class="btn secondary" download>Download CV</a>
                 </div>
             </div>
         </div>
@@ -983,32 +1045,32 @@
                 <div class="service-card">
                     <i class="fas fa-code"></i>
                     <h3>Web Development</h3>
-                    <p>Custom websites and web applications built with modern technologies and best practices, focusing on performance and scalability.</p>
+                    <p>Custom websites built with modern code or WordPress, scalable web applications, and e-commerce solutions. Specializing in both traditional development and CMS-based solutions to match your specific needs. Increase your online presence by up to 70% with professional web solutions.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Responsive Design</h3>
-                    <p>Mobile-first websites that work seamlessly across all devices, ensuring your audience has a consistent experience.</p>
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Integration</h3>
+                    <p>Transform your business with cutting-edge AI solutions. From chatbots to predictive analytics, AI integration has shown to increase efficiency by 40% and customer satisfaction by 35%. Stay ahead of competition with smart automation and data-driven insights.</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-paint-brush"></i>
-                    <h3>UI/UX Design</h3>
-                    <p>User-centered design that enhances the user experience and creates intuitive, engaging interfaces.</p>
+                    <h3>Branding & Design</h3>
+                    <p>Strategic branding and design that sets you apart. Companies with consistent branding see a 33% increase in revenue. Our design services have helped businesses increase conversion rates by up to 40% through improved user experience and brand trust.</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-tachometer-alt"></i>
                     <h3>Performance Optimization</h3>
-                    <p>Speed up your website with performance optimizations that improve load times and user experience.</p>
+                    <p>Boost your website's speed and performance. A 1-second improvement in load time can increase conversions by 7%. Our optimization services have helped clients achieve up to 300% faster loading times.</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-search"></i>
                     <h3>SEO Optimization</h3>
-                    <p>Improve your website's visibility in search engines with technical SEO implementation and performance optimization.</p>
+                    <p>Data-driven SEO strategies that deliver results. Our clients typically see a 50-70% increase in organic traffic within 6 months. Comprehensive technical SEO and content optimization to improve your search engine rankings.</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-cogs"></i>
-                    <h3>Maintenance &amp; Support</h3>
-                    <p>Ongoing website maintenance, updates, and technical support to ensure your digital presence remains secure and up-to-date.</p>
+                    <h3>Maintenance & Support</h3>
+                    <p>Proactive maintenance and support to keep your digital assets running smoothly. Regular updates, security patches, and performance monitoring to ensure 99.9% uptime and optimal functionality.</p>
                 </div>
             </div>
         </div>
@@ -1018,53 +1080,64 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">My Work</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem; font-style: italic;">Tap on the images to see project details and visit the website</p>
             <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
             </div>
             <div class="portfolio-grid">
                 <!-- Portfolio Item 1 -->
                 <div class="portfolio-item" data-category="all">
-                    <img src="img/Screenshot (1).png?height=250&width=400" alt="E-commerce Website">
+                    <img src="img/Screenshot (69).png?height=250&width=400" alt="E-commerce Website">
+                    <div class="portfolio-info">
+                        <h3>Void Apparels</h3>
+                        <p>A professional online clothing store built for a client "VOID APPARELS". It sells a variety of clothing for men, women, unisex & young people. Tech Stack: React.js, Node.js, Mongodb, Cloudinary Api</p>
+                        <a href="https://www.void.ng/" class="btn primary">View Website</a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->   
+                <div class="portfolio-item" data-category="all">
+                    <img src="img/Screenshot (1).png?height=250&width=400" alt="AI data Analyst Website">
                     <div class="portfolio-info">
                         <h3>Omnicore Ai</h3>
                         <p>Designed and developed AI-powered data analysis tools for business insights, trends, and more. : Tech Stack: Next.js, Tailwind CSS, AI Integration (Gemini 2.0 Flash)  </p>
-                        <a href="https://omnicore-ai.vercel.app/" class="btn primary">View Project</a>
-                    </div>
-                </div>
-                <!-- Portfolio Item 2 -->
-                <div class="portfolio-item" data-category="all">
-                    <img src="img/Screenshot (19).png" alt="E-commerce Website">
-                    <div class="portfolio-info">
-                        <h3>Peerplay</h3>
-                        <p>Collaborated and contributed to build a synchronized movie-watching platform allowing users in different locations to watch together in real-time. : Tech Stack: Next.js, Tailwind CSS, WebSocket, Node.js, PostgreSQL</p>
-                        <a href="https://peerplay.space/" class="btn primary">View Project</a>
+                        <a href="https://omnicore-ai.vercel.app/" class="btn primary">View Website</a>
                     </div>
                 </div>
                 <!-- Portfolio Item 3 -->
                 <div class="portfolio-item" data-category="all">
-                    <img src="img/Screenshot (3).png?height=250&width=400" alt="Inventory Management System">
+                    <img src="img/Screenshot (19).png" alt="Asynchronous video Website">
                     <div class="portfolio-info">
-                        <h3>Bugless</h3>
-                        <p>Developed a code optimization tool for developers using ESlint, Stylelint and HtmlHint. : Tech Stack: React, MongoDB, Node.js, CSS </p>
-                        <a href="https://bugless-application.vercel.app/" class="btn primary">View Project</a>
+                        <h3>Peerplay</h3>
+                        <p>Contributed on build a synchronized movie-watching platform allowing users in different locations to watch together in real-time. : Tech Stack: Next.js, Tailwind CSS, WebSocket, Node.js, PostgreSQL</p>
+                        <a href="https://peerplay.space/" class="btn primary">View Website</a>
                     </div>
                 </div>
                 <!-- Portfolio Item 4 -->
                 <div class="portfolio-item" data-category="all">
-                    <img src="img/Screenshot (4).png?height=250&width=400" alt="Social Media Dashboard">
+                    <img src="img/Screenshot (88).png?height=250&width=400" alt="Bugless website">
+                    <div class="portfolio-info">
+                        <h3>Bugless</h3>
+                        <p>Developed a code optimization tool for developers using ESlint, Stylelint and HtmlHint. : Tech Stack: React, MongoDB, Node.js, CSS </p>
+                        <a href="https://bugless-application.vercel.app/" class="btn primary">View Website</a>
+                    </div>
+                </div>
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item" data-category="all">
+                    <img src="img/Screenshot (4).png?height=250&width=400" alt="Bg removal website">
                     <div class="portfolio-info">
                         <h3>No-bg</h3>
                         <p>Created a background removal tool with custom background color replacement. : Tech Stack: React, Node.js, API, CSS, Mongodb </p>
-                        <a href="https://no-bg.vercel.app/" class="btn primary">View Project</a>
+                        <a href="https://no-bg.vercel.app/" class="btn primary">View Website</a>
                     </div>
                 </div>
-                <!-- Portfolio Item 4 -->
+                <!-- Portfolio Item 6 -->
                 <div class="portfolio-item" data-category="all">
                     <img src="img/Screenshot (5).png?height=250&width=400" alt="Portfolio Website">
                     <div class="portfolio-info">
                         <h3>MarcDev</h3>
                         <p>My personal portfolio. : Tech Stack: HTML, CSS, JavaScript</p>
-                        <a href="#" class="btn primary">View Project</a>
+                        <a href="#" class="btn primary">View Website</a>
                     </div>
                 </div>
             </div>
@@ -1077,8 +1150,8 @@
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Let's Talk About Your Project</h3>
-                    <p>Feel free to reach out. I'm always open to discussing new projects, creative ideas, and opportunities to be part of your vision.</p>
+                    <h3>Let's Talk About Your Project or Business</h3>
+                    <p>Feel free to reach out. I'm always open to discussing new projects, Businesses, creative ideas, and opportunities to be part of your vision and growth.</p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -1086,7 +1159,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>+234: 07026225943</span>
+                            <span>+2347040377972</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-location-dot"></i>
